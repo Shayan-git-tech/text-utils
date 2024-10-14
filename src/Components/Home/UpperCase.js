@@ -49,6 +49,12 @@ export default class UpperCase extends Component {
               console.error("Failed to copy text: ", err);
           });
   }
+
+  handleSpaces = () => {
+    this.setState({
+        text: this.state.text.replace(/\s+/g, " ")
+    });
+  }
   
       
   render() {
@@ -95,6 +101,12 @@ export default class UpperCase extends Component {
   <button type='submit' onClick={this.handleCopy}>
     <div class="button-wrapper">
       <span class="button_top">Copy Text</span>
+    </div>
+  </button> 
+
+  <button type='submit' onClick={this.handleSpaces}>
+    <div class="button-wrapper">
+      <span class="button_top">Remove ExtraSpaces</span>
     </div>
   </button>  
             
