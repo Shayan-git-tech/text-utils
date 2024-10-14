@@ -39,6 +39,17 @@ export default class UpperCase extends Component {
             isDarkMode : !prevState.isDarkMode
       }));
     }
+
+    handleCopy = () => {
+      navigator.clipboard.writeText(this.state.text)
+          .then(() => {
+              alert("Text copied to clipboard!");
+          })
+          .catch((err) => {
+              console.error("Failed to copy text: ", err);
+          });
+  }
+  
       
   render() {
     let txt = this.state.text;
@@ -74,12 +85,18 @@ export default class UpperCase extends Component {
       <span class="button_top">Convert to TitleCase</span>
     </div>
   </button>  
+            
   <button type='submit' onClick={this.handleSentencecase}>
     <div class="button-wrapper">
       <span class="button_top">Convert to SentenceCase</span>
     </div>
   </button>  
-            
+
+  <button type='submit' onClick={this.handleCopy}>
+    <div class="button-wrapper">
+      <span class="button_top">Copy Text</span>
+    </div>
+  </button>  
             
       </div>  
       </div>
