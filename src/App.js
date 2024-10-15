@@ -5,7 +5,7 @@ import UpperCase from './Components/Home/UpperCase.js'
 import React, {useState} from 'react';
 
 function App() {
-  const [mode, setMode] = useState('dark');  // Set initial mode as 'light'
+  const [mode, setMode] = useState('dark');  
  
   const toggleMode = () => {
     if (mode === 'light') {
@@ -27,8 +27,6 @@ function App() {
        
         <Header mode={mode} toggleMode={toggleMode}/>
         
-
-
         <UpperCase heading="Enter the text you want to convert"/>
        
         <Footer name="ShayanKhan."/>
