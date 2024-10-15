@@ -10,14 +10,20 @@ export default function UpperCase(props) {
 
     const handleUppercase = () => {
         setText(text.toUpperCase());
+        props.showAlert("Text Changed To UpperCase");
+
     };
 
     const handleLowercase = () => {
         setText(text.toLowerCase());
+        props.showAlert("Text Changed To LowerCase");
+
     };
 
     const handleSentencecase = () => {
         setText(text.charAt(0).toUpperCase() + text.slice(1).toLowerCase());
+        props.showAlert("Text Changed To SentenceCase");
+
     };
 
     const handleTitlecase = () => {
@@ -25,6 +31,8 @@ export default function UpperCase(props) {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
             .join(' ')
         );
+        props.showAlert("Text Changed To TitleCase");
+
     };
 
     const handleCopy = () => {
@@ -35,10 +43,12 @@ export default function UpperCase(props) {
             .catch((err) => {
                 console.error("Failed to copy text: ", err);
             });
+
     };
 
     const handleSpaces = () => {
         setText(text.replace(/\s+/g, " ").trim());
+        props.showAlert("Extra spaces removed");
     };
 
     const wordscount = text.trim().split(/\s+/).filter(word => word !== "").length;
