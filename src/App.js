@@ -11,7 +11,7 @@ function App() {
 
 const showAlert = (message) => {
   setAlert(message);
-  setTimeout(() => setAlert(false), 1500);
+  setTimeout(() => setAlert(false), 2000);
 }
 
   useEffect(() => {
