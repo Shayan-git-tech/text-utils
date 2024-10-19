@@ -3,52 +3,77 @@ import React, { useState } from 'react';
 export default function UpperCase(props) {
     const [text, setText] = useState(""); // State to hold text input
 
+    // Function to display an alert when the textarea is empty
+    const handleEmptyInput = () => {
+        props.showAlert("Please enter some text to perform this action.");
+      
+    };
+
     // Handlers for various button functions
     const handleChange = (event) => {
         setText(event.target.value);
     };
 
     const handleUppercase = () => {
-        setText(text.toUpperCase());
-        props.showAlert("Text Changed To UpperCase");
-
+        if (text.trim()) {
+            setText(text.toUpperCase());
+            props.showAlert("Text Changed To UpperCase");
+        } else {
+            handleEmptyInput();
+        }
     };
 
     const handleLowercase = () => {
-        setText(text.toLowerCase());
-        props.showAlert("Text Changed To LowerCase");
-
+        if (text.trim()) {
+            setText(text.toLowerCase());
+            props.showAlert("Text Changed To LowerCase");
+        } else {
+            handleEmptyInput();
+        }
     };
 
     const handleSentencecase = () => {
-        setText(text.charAt(0).toUpperCase() + text.slice(1).toLowerCase());
-        props.showAlert("Text Changed To SentenceCase");
-
+        if (text.trim()) {
+            setText(text.charAt(0).toUpperCase() + text.slice(1).toLowerCase());
+            props.showAlert("Text Changed To SentenceCase");
+        } else {
+            handleEmptyInput();
+        }
     };
 
     const handleTitlecase = () => {
-        setText(text.split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join(' ')
-        );
-        props.showAlert("Text Changed To TitleCase");
-
+        if (text.trim()) {
+            setText(text.split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ')
+            );
+            props.showAlert("Text Changed To TitleCase");
+        } else {
+            handleEmptyInput();
+        }
     };
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(text)
-            .then(() => {
-                alert("Text copied to clipboard!");
-            })
-            .catch((err) => {
-                console.error("Failed to copy text: ", err);
-            });
-
+        if (text.trim()) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    props.showAlert("Text copied to clipboard!");
+                })
+                .catch((err) => {
+                    console.error("Failed to copy text: ", err);
+                });
+        } else {
+            handleEmptyInput();
+        }
     };
 
     const handleSpaces = () => {
-        setText(text.replace(/\s+/g, " ").trim());
-        props.showAlert("Extra spaces removed");
+        if (text.trim()) {
+            setText(text.replace(/\s+/g, " ").trim());
+            props.showAlert("Extra spaces removed");
+        } else {
+            handleEmptyInput();
+        }
     };
 
     const wordscount = text.trim().split(/\s+/).filter(word => word !== "").length;
