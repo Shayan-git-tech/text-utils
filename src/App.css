@@ -277,18 +277,53 @@ input:checked + .slider:before {
 .alert-box {
   padding: 10px;
   border-radius: 8px;
-  margin: 20px auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 600px;
   text-align: center;
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 1.2em;
   font-weight: 600;
+  opacity: 0;
   transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
 }
+
+.alert-box.show {
+  animation: slide-down 0.5s forwards; /* Show with slide-down animation */
+}
+
+.alert-box.hide {
+  animation: slide-up 0.5s forwards; /* Hide with slide-up animation */
+}
+
+/* Slide-down (fade-in) animation */
+@keyframes slide-down {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  100% {
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+/* Slide-up (fade-out) animation */
+@keyframes slide-up {
+  0% {
+    top: 20px;
+    opacity: 1;
+  }
+  100% {
+    top: -100px;
+    opacity: 0;
+  }
+}
+
+/* Dark mode alert */
 .alert-dark {
   background-color: #333;
   color: #e8e8e8;
@@ -301,3 +336,4 @@ input:checked + .slider:before {
   color: #333;
   border: 1px solid #ccc;
 }
+
