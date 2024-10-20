@@ -5,6 +5,34 @@
   padding: 0;
   overflow-x: hidden; /* Ensure no horizontal scrollbar */
 }
+
+/* Koopa Beach Theme */
+body.koopaBeach {
+  --button-radius: 0.75em;
+  --background: #f6d365;
+  --second-background: #feffde;
+  --text-color: #005f73;
+  --button-border: #ffbc42;
+  --button-color: #ffbc42;
+  --button-outline-color: #005f73;
+  --switch-background: #6f6f6f;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+/* Choco Mountain Theme */
+body.chocoMountain {
+  --button-radius: 0.75em;
+  --background: #4a2c2a;
+  --second-background: #7b5438;
+  --text-color: #f0d8d0;
+  --button-border: #bc6c25;
+  --button-color: #f0d8d0;
+  --button-outline-color: #7b5438;
+  --switch-background: #8c8c8c;
+  background-color: var(--background);
+  color: var(--text-color);
+}
 /* Default dark mode styles */
 body.dark {
   --button-radius: 0.75em;
@@ -34,7 +62,8 @@ body.light {
 header {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
+  gap: 2rem;
   justify-content: space-between;
   background-color: var(--background);
   color: inherit;
@@ -46,14 +75,11 @@ header {
   align-items: center;
 }
 
-.switch-container {
-  margin-right: 20px;
-}
+
 
 .logo {
   display: block;
   width: 100px;
-  margin-left: 30px;
   max-width: 100px;
 }
 
@@ -109,8 +135,8 @@ hr {
   background-color: inherit;
   box-shadow: 0 8px 32px 0 rgba(78, 78, 78, 0.23);
   backdrop-filter: blur(2.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: inherit;
+  border: 1px solid var(--button-color);
+  color: var(--text-color);
 }
 
 .calculate-char {
@@ -220,7 +246,9 @@ button {
 
   }
 }
-
+.switch-container{
+  margin-left: 50rem ;
+}
 
 
 .switch {
@@ -337,3 +365,35 @@ input:checked + .slider:before {
   border: 1px solid #ccc;
 }
 
+
+
+ .theme-switcher {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+}
+
+.theme-option {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.theme-option p {
+  margin: 0;
+}
+
+.theme-colors {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.theme-colors span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}

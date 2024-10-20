@@ -1,19 +1,21 @@
-import React from 'react'
-import logo from '../../logo.svg'
+import React from 'react';
+import logo from '../../logo.svg';
+import ThemeSwitcher from '../Home/ThemeSwitcher';
 
 export default function Header(props) {
-    return (
-      <header>
+  return (
+    <header>
       <div className="logo-container">
-        <img src={logo} alt="Logo" className='logo'/>
+        <img src={logo} alt="Logo" className='logo' />
         <span className='headline'>Word Count</span>
-</div>
-<div className='switch-container'>
+      </div>
+      <div className='switch-container'>
         <label className="switch">
-    <input type="checkbox" onClick={props.toggleMode}/>
-    <span className="slider"></span>
+          <input type="checkbox" onClick={props.toggleMode} />
+          <span className="slider"></span>
         </label>
-        </div>
-      </header>
-    );
-  }
+      </div>
+      <ThemeSwitcher setTheme={props.setTheme} />
+    </header>
+  );
+}
