@@ -79,8 +79,11 @@ header {
 
 .logo {
   display: block;
-  width: 100px;
-  max-width: 100px;
+  width: 150px;
+  max-width: 150px;
+  aspect-ratio: auto;
+  cursor: pointer;
+  
 }
 
 footer {
@@ -174,12 +177,7 @@ button {
   border-radius: var(--button-radius);
   background-color: var(--button-color);
 }
-.headline{
-  color: inherit;
-  font-weight: 700;
-  font-size: 20px;
-  cursor: pointer;
-}
+
 .button_top {
   display: block;
   
@@ -246,8 +244,10 @@ button {
 
   }
 }
+
+/* Dark & Light Mode Switch */
 .switch-container{
-  margin-left: 50rem ;
+  margin-left: 55rem ;
 }
 
 
@@ -301,6 +301,8 @@ input:checked + .slider:before {
   transform: translateX(100%);
   box-shadow: inset 15px -4px 0px 15px #fff000;
 }
+
+/*Alert Box */
 
 .alert-box {
   padding: 10px;
@@ -366,7 +368,7 @@ input:checked + .slider:before {
 }
 
 
-
+/* Color Theme Switcher */
  .theme-switcher {
   display: flex;
   gap: 1rem;

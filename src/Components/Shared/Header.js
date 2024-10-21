@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../logo.svg';
+import logo from '../../Logo.png';
 import ThemeSwitcher from '../Home/ThemeSwitcher';
 
 export default function Header(props) {
@@ -7,7 +7,6 @@ export default function Header(props) {
     <header>
       <div className="logo-container">
         <img src={logo} alt="Logo" className='logo' />
-        <span className='headline'>Word Count</span>
       </div>
       <div className='switch-container'>
         <label className="switch">
