@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Components/Shared/Header.js';
 import Footer from './Components/Shared/Footer.js';
+import About from './Components/Home/About.js'
 import UpperCase from './Components/Home/UpperCase.js';
 import Alert from './Components/Home/Alert.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 
 function App() {
   const [mode, setMode] = useState('dark');  // Default to dark mode
@@ -69,12 +76,20 @@ function App() {
   }, [theme, mode]);  // Depend on both theme and mode
 
   return (
-    <div>
-      <Header mode={mode} toggleMode={toggleMode} setTheme={handleThemeChange} />
-      <Alert alert={alert} alertVisible={alertVisible} />
-      <UpperCase heading="Enter the text you want to convert" showAlert={showAlert} />
-      <Footer name="ShayanKhan." />
-    </div>
+    <Router>
+      <div>
+        <Header mode={mode} toggleMode={toggleMode} setTheme={handleThemeChange} />
+        <Routes>
+          <Route path="/" element={<>
+            <Alert alert={alert} alertVisible={alertVisible} />
+            <UpperCase heading="Enter the text you want to convert" showAlert={showAlert} />
+          </>} />
+          <Route path="/about" element={<><About /></>} />
+          
+        </Routes>
+        <Footer name="ShayanKhan." />
+      </div>
+    </Router>
   );
 }
 
