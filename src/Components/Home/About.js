@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 export default function About() {
   return (
     <section className="about-container">
@@ -17,7 +17,7 @@ export default function About() {
           <li>Switch between Light, Dark, and custom themes like Koopa Beach and Choco Mountain.</li>
           <li>Easy to use, accessible, and responsive on all devices.</li>
         </ul>
-        <button className="cta-button">Explore Text Utils Now</button>
+        <Link to="/" className="cta-button">Explore Text Utils Now</Link>
       </div>
     </section>
   );
