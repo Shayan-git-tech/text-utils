@@ -6,7 +6,7 @@ import About from './Components/Home/About.js'
 import UpperCase from './Components/Home/UpperCase.js';
 import Alert from './Components/Home/Alert.js';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
@@ -84,7 +84,7 @@ function App() {
             <Alert alert={alert} alertVisible={alertVisible} />
             <UpperCase heading="Enter the text you want to convert" showAlert={showAlert} />
           </>} />
-          <Route path="/about" element={<><About /></>} />
+          <Route path="/about" element={<About />} />
           
         </Routes>
         <Footer name="ShayanKhan." />
