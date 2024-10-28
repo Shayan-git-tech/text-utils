@@ -76,8 +76,8 @@ export default function UpperCase(props) {
         }
     };
 
-    const wordscount = text.trim().split(/\s+/).filter(word => word !== "").length;
-
+    const wordscount = text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    const characterCount = text.replace(/\s/g, "").length;
     return (
         <div className="flex-box">
             <div className="upper-case">
@@ -137,7 +137,7 @@ export default function UpperCase(props) {
 
             <div className='calculate-char'>
                 <h2>No. of Characters and Words</h2>
-                <p>{text.length} Characters and {wordscount} Words</p>
+                <p>{characterCount} Characters and {wordscount} Words</p>
 
                 <h3>Amount of time it will take to read</h3>
                 <p>{(wordscount / 238).toFixed(2)} Minutes</p>      

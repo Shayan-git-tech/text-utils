@@ -16,6 +16,17 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
    
     <title>Text Utils</title>
+
+    
+    <script>
+      // Apply dark mode class immediately before the React app loads
+      (function() {
+        const darkMode = true; // Assuming you want dark mode as default
+        if (darkMode) {
+          document.body.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

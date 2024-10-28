@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   overflow-x: hidden; /* Ensure no horizontal scrollbar */
 }
 
@@ -34,7 +35,7 @@ body.chocoMountain {
   color: var(--text-color);
 }
 /* Default dark mode styles */
-body.dark {
+body.dark{
   --button-radius: 0.75em;
   --button-color: #e8e8e8;
   --button-outline-color: #000000;
@@ -47,7 +48,7 @@ body.dark {
 }
 
 /* Light mode styles */
-body.light {
+body.light{
   --button-radius: 0.75em;
   --button-color: #0e0e0e;
   --button-outline-color: #e8e8e8;
@@ -345,11 +346,14 @@ button {
   font-size: 1rem;
   text-align: left;
 }
+.about-features li::before{
+  content: "⇨ ";
+}
 
 .cta-button {
   padding: 0.8rem 2rem;
   background-color: var(--primary-color);
-  color: #fff;
+  color: var(--text-color);
   border: none;
   border-radius: 8px;
   font-size: 1rem;

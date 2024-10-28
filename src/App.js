@@ -10,6 +10,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ScrollToTop from './Components/Shared/ScrollToTop.js';
 
 
 function App() {
@@ -27,23 +28,24 @@ function App() {
     }, 2000);
   };
 
-  // Toggle Light/Dark mode
-  const toggleMode = () => {
-    if (mode === 'light') {
-      setMode('dark');
-      document.body.classList.remove('light');
-      document.body.classList.add('dark');
-      showAlert("Dark Mode Enabled");
-    } else {
-      setMode('light');
-      document.body.classList.remove('dark');
-      document.body.classList.add('light');
-      showAlert("Light Mode Enabled");
-    }
+// Toggle Light/Dark mode
+const toggleMode = () => {
+  if (mode === 'light') {
+    setMode('dark');
+    document.body.classList.remove('light');
+    document.body.classList.add('dark');
+    showAlert("Dark Mode Enabled");
+  } else {
+    setMode('light');
+    document.body.classList.remove('dark');
+    document.body.classList.add('light');
+    showAlert("Light Mode Enabled");
+  }
 
-    // Remove any active custom theme when switching modes
-    setTheme(null);
-  };
+  // Remove any active custom theme when switching modes
+  setTheme(null);
+};
+
 
   // Function to remove all theme classes
   const clearThemes = () => {
@@ -77,6 +79,7 @@ function App() {
 
   return (
     <Router>
+    <ScrollToTop />
       <div>
         <Header mode={mode} toggleMode={toggleMode} setTheme={handleThemeChange} />
         <Routes>
